@@ -9,13 +9,16 @@ import {
 
 const GameCardSkeleton = () => {
   return (
-    <Card.Root margin={4} w={320} overflow={"hidden"}>
-      <Skeleton height="200px" marginBottom={5} variant={"shine"} />
-      <Stack gap="4" width={"100%"} padding={2}>
-        <SkeletonText variant={"shine"} noOfLines={2} />
-        <SkeletonText variant={"shine"} width={32} noOfLines={1} />
-        <SkeletonText variant={"shine"} width={20} height={6} noOfLines={1} />
+    <Card.Root>
+      <Skeleton height="200px" width="100%" marginBottom={2} />
+      <Stack gap="4" padding={2}>
+        <SkeletonText noOfLines={1} width="60%" />
+        <SkeletonText noOfLines={1} width="40%" />
+        <SkeletonText noOfLines={1} width="30%" />
       </Stack>
+      <Card.Footer gap="2" padding={2}>
+        <Skeleton height="20px" width="50px" />
+      </Card.Footer>
     </Card.Root>
   );
 };
