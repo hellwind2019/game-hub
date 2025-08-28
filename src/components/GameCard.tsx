@@ -3,6 +3,7 @@ import { Button, Card, Image, Text } from "@chakra-ui/react";
 import { FiPlus } from "react-icons/fi";
 
 import { PlatformIconsList } from "./PlatformIconList";
+import getCroppedImageUrl from "@/services/image-url";
 
 interface Props {
   game: Game;
@@ -11,7 +12,7 @@ const GameCard = ({ game }: Props) => {
   return (
     <Card.Root maxW="sm" overflow="hidden">
       <Image
-        src={game.background_image}
+        src={getCroppedImageUrl(game.background_image)}
         alt="Green double couch with wooden legs"
         aspectRatio={16 / 9}
       />
