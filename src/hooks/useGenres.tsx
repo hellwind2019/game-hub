@@ -8,6 +8,7 @@ interface FetchGenresResponce {
 interface Genre {
   id: number;
   name: string;
+  image_background: string;
 }
 const useGenres = () => {
   const [genres, setGenres] = useState<Genre[]>([]);
