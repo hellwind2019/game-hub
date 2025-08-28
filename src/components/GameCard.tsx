@@ -22,9 +22,7 @@ const GameCard = ({ game }: Props) => {
           <Text textStyle="3xl">{game.name}</Text>
         </Card.Title>
 
-        <Card.Description>
-          <PlatformIconsList platforms={game.parent_platforms} />
-        </Card.Description>
+        <PlatformIconsList platforms={game.parent_platforms} />
       </Card.Body>
       <Card.Footer gap="2">
         <Button size="xs" variant={"outline"}>
