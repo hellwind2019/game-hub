@@ -46,6 +46,7 @@ const useGames = (selectedGenre: Genre | null) => {
       });
     return () => controller.abort();
   }, [selectedGenre?.id]);
+  //Test
   return { games, error, isLoading };
 };
 export default useGames;
