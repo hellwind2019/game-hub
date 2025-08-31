@@ -2,7 +2,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 
 import GameGrid from "./components/GameGrid";
-import Sidebar from "./components/Sidebar";
+import GenreList from "./components/GenreList";
 import { useState } from "react";
 import type { Genre } from "./hooks/useGenres";
 
@@ -23,7 +23,7 @@ function App() {
         <NavBar />
       </GridItem>
       <GridItem hideBelow={"lg"} area={"aside"} padding={4}>
-        <Sidebar onSelect={(genre) => setGenre(genre)} />
+        <GenreList onSelect={(genre) => setGenre(genre)} />
       </GridItem>
       <GridItem area={"main"}>
         <GameGrid selectedGenre={genre} />
