@@ -1,7 +1,8 @@
 import useGenres, { type Genre } from "@/hooks/useGenres";
 import getCroppedImageUrl from "@/services/image-url";
-import { Button, HStack, Image, List } from "@chakra-ui/react";
+import { Button, HStack, Image, List, Text } from "@chakra-ui/react";
 import GenreSkeleton from "./GenreSkeleton";
+import { startTransition } from "react";
 
 interface Props {
   onSelect: (genre: Genre) => void;
@@ -14,6 +15,7 @@ const Sidebar = ({ onSelect }: Props) => {
   return (
     <List.Root w={"120px"} as={"ul"} listStyleType={"none"}>
       {isLoading && skeletons.map((s) => <GenreSkeleton key={s} />)}
+      {error && <Text color={"red.500"}>{error}</Text>}
       {genres.map((g) => (
         <List.Item key={g.id} padding={1}>
           <HStack gap={2}>
@@ -25,7 +27,13 @@ const Sidebar = ({ onSelect }: Props) => {
               src={getCroppedImageUrl(g.image_background)}
             />
             <Button
-              onClick={() => onSelect(g)}
+              onClick={() => {
+                startTransition(() => {
+                  onSelect(g);
+                });
+                console.log("Clicked");
+                console.time("Genre click");
+              }}
               variant={"plain"}
               textStyle={"lg"}
             >
