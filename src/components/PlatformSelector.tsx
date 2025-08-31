@@ -10,10 +10,11 @@ const PlatformSelector = ({ onSelectPlatfrom, selectedPlatform }: Props) => {
   const { data } = usePlatforms();
   return (
     <Menu.Root>
-      <Menu.Trigger>
+      <Menu.Trigger asChild>
         <HStack>
           <Button variant={"outline"}>
             {selectedPlatform?.name || "All Platforms"}
+
             <BsChevronDown />
           </Button>
         </HStack>

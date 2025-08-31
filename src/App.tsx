@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 
 import GameGrid from "./components/GameGrid";
@@ -31,10 +31,12 @@ function App() {
         <GenreList onSelect={(genre) => setGenre(genre)} />
       </GridItem>
       <GridItem area={"main"}>
-        <PlatformSelector
-          selectedPlatform={selectedPlatform}
-          onSelectPlatfrom={(platform) => setSelectedPlatform(platform)}
-        />
+        <Box pl={4} py={2} width={"200px"}>
+          <PlatformSelector
+            selectedPlatform={selectedPlatform}
+            onSelectPlatfrom={(platform) => setSelectedPlatform(platform)}
+          />
+        </Box>
         <GameGrid selectedPlatform={selectedPlatform} selectedGenre={genre} />
       </GridItem>
     </Grid>
