@@ -26,7 +26,6 @@ const useGames = (selectedGenre: Genre | null) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    console.timeEnd("Genre click");
     const controller = new AbortController();
     setIsLoading(true);
     apiClient

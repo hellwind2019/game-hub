@@ -14,34 +14,37 @@ const Sidebar = ({ onSelect }: Props) => {
 
   return (
     <List.Root w={"120px"} as={"ul"} listStyleType={"none"}>
-      {isLoading && skeletons.map((s) => <GenreSkeleton key={s} />)}
       {error && <Text color={"red.500"}>{error}</Text>}
-      {genres.map((g) => (
-        <List.Item key={g.id} padding={1}>
-          <HStack gap={2}>
-            <Image
-              height={"50px"}
-              fit={"cover"}
-              aspectRatio={"1/1"}
-              borderRadius={10}
-              src={getCroppedImageUrl(g.image_background)}
-            />
-            <Button
-              onClick={() => {
-                startTransition(() => {
-                  onSelect(g);
-                });
-                console.log("Clicked");
-                console.time("Genre click");
-              }}
-              variant={"plain"}
-              textStyle={"lg"}
-            >
-              {g.name}
-            </Button>
-          </HStack>
-        </List.Item>
-      ))}
+      {isLoading
+        ? skeletons.map((s) => <GenreSkeleton key={s} />)
+        : genres.map((g) => (
+            <List.Item key={g.id} padding={1.5}>
+              <HStack gap={2}>
+                <Image
+                  height={"50px"}
+                  fit={"cover"}
+                  aspectRatio={"1/1"}
+                  borderRadius={10}
+                  src={getCroppedImageUrl(g.image_background)}
+                />
+                <Button
+                  // overflow={"hidden"}
+                  width={"100%"}
+                  justifyContent={"start"}
+                  whiteSpace={"normal"}
+                  onClick={() => {
+                    startTransition(() => {
+                      onSelect(g);
+                    });
+                  }}
+                  variant={"plain"}
+                  textStyle={"lg"}
+                >
+                  {g.name}
+                </Button>
+              </HStack>
+            </List.Item>
+          ))}
     </List.Root>
   );
 };
