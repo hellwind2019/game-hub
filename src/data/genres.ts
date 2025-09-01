@@ -1,5 +1,51 @@
 export default [
   {
+    id: 0,
+    name: "Everything",
+    slug: "everything",
+    games_count: 189370,
+    image_background:
+      "https://media.rawg.io/media/games/b74/b74b15a48ac7bc37fbb42ee4afcc0b91.jpg",
+    games: [
+      {
+        id: 3498,
+        slug: "grand-theft-auto-v",
+        name: "Grand Theft Auto V",
+        added: 22192,
+      },
+      {
+        id: 3328,
+        slug: "the-witcher-3-wild-hunt",
+        name: "The Witcher 3: Wild Hunt",
+        added: 21863,
+      },
+      {
+        id: 5286,
+        slug: "tomb-raider",
+        name: "Tomb Raider (2013)",
+        added: 17656,
+      },
+      {
+        id: 13536,
+        slug: "portal",
+        name: "Portal",
+        added: 17621,
+      },
+      {
+        id: 12020,
+        slug: "left-4-dead-2",
+        name: "Left 4 Dead 2",
+        added: 17417,
+      },
+      {
+        id: 5679,
+        slug: "the-elder-scrolls-v-skyrim",
+        name: "The Elder Scrolls V: Skyrim",
+        added: 16634,
+      },
+    ],
+  },
+  {
     id: 4,
     name: "Action",
     slug: "action",
