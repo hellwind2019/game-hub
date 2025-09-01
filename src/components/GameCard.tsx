@@ -4,6 +4,7 @@ import { FiPlus } from "react-icons/fi";
 
 import { PlatformIconsList } from "./PlatformIconList";
 import getCroppedImageUrl from "@/services/image-url";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;
@@ -18,11 +19,14 @@ const GameCard = ({ game }: Props) => {
         aspectRatio={16 / 9}
       />
       <Card.Body gap="2">
-        <Card.Title>
-          <Text textStyle="3xl">{game.name}</Text>
-        </Card.Title>
-
         <PlatformIconsList platforms={game.parent_platforms} />
+
+        <Card.Title mt={2}>
+          <Text textStyle="3xl">
+            {game.name}
+            <Emoji rating={game.rating_top} />
+          </Text>
+        </Card.Title>
       </Card.Body>
       <Card.Footer gap="2">
         <Button size="xs" variant={"outline"}>
