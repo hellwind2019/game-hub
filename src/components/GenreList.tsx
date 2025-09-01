@@ -6,9 +6,10 @@ import useGenres, { type Genre } from "@/hooks/useGenres.ts";
 
 interface Props {
   onSelect: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelect }: Props) => {
+const GenreList = ({ onSelect, selectedGenre }: Props) => {
   const { data, error, isLoading } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -32,6 +33,7 @@ const GenreList = ({ onSelect }: Props) => {
                   width={"100%"}
                   justifyContent={"start"}
                   whiteSpace={"normal"}
+                  fontWeight={g.id === selectedGenre?.id ? "bold" : "normal"}
                   onClick={() => {
                     startTransition(() => {
                       onSelect(g);
